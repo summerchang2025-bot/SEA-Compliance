@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外广告合规情报站 | Overseas Compliance Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">◈</span>
+                <span class="brand-text">合规情报站</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">总览</a></li>
+                <li><a href="pages/regions.html">地区市场</a></li>
+                <li><a href="pages/laws.html">法律领域</a></li>
+                <li><a href="pages/sources.html">信息源</a></li>
+                <li><a href="pages/updates.html">最新动态</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-icon" id="searchBtn">🔍</button>
+                <button class="btn-primary" onclick="toggleAlert()">➕ 添加监控</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>东南亚 + 香港广告合规情报中心</h1>
+            <p class="subtitle">覆盖越南、泰国、马来西亚、香港四大市场 · 广告法 · 网红合规 · 劳动用工 · 外商投资 · 税务外汇</p>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">覆盖市场</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">法律领域</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">监控信息源</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number highlight">12</span>
+                    <span class="stat-label">本周更新</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 快速导航 -->
+        <section class="region-grid">
+            <h2>市场速览</h2>
+            <div class="cards">
+                <a href="pages/vietnam.html" class="card region-card vn">
+                    <div class="card-header">
+                        <span class="flag">🇻🇳</span>
+                        <span class="badge hot">设立中</span>
+                    </div>
+                    <h3>越南 Vietnam</h3>
+                    <ul class="quick-links">
+                        <li>广告法 (2012修订)</li>
+                        <li>网红/KOL合规指引</li>
+                        <li>外商投资准入 (负面清单)</li>
+                        <li>劳动法 & 社保</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="update-time">更新: 2025.01</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="pages/thailand.html" class="card region-card th">
+                    <div class="card-header">
+                        <span class="flag">🇹🇭</span>
+                        <span class="badge hot">设立中</span>
+                    </div>
+                    <h3>泰国 Thailand</h3>
+                    <ul class="quick-links">
+                        <li>贸易竞争法 (2017)</li>
+                        <li>计算机犯罪法 (B.E.2560)</li>
+                        <li>外商经营法 (FBA)</li>
+                        <li>数字平台经济法</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="update-time">更新: 2025.01</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="pages/malaysia.html" class="card region-card my">
+                    <div class="card-header">
+                        <span class="flag">🇲🇾</span>
+                        <span class="badge">监控中</span>
+                    </div>
+                    <h3>马来西亚 Malaysia</h3>
+                    <ul class="quick-links">
+                        <li>通信与多媒体法 (MCMA)</li>
+                        <li>个人数据保护法 (PDPA)</li>
+                        <li>广告标准局 (ASA) 准则</li>
+                        <li>劳动法 & 外籍员工</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="update-time">更新: 2025.01</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="pages/hongkong.html" class="card region-card hk">
+                    <div class="card-header">
+                        <span class="flag">🇭🇰</span>
+                        <span class="badge">运营中</span>
+                    </div>
+                    <h3>香港 Hong Kong</h3>
+                    <ul class="quick-links">
+                        <li>商品说明条例</li>
+                        <li>个人资料隐私条例 (PDPO)</li>
+                        <li>广播事务管理局守则</li>
+                        <li>竞争条例</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="update-time">更新: 2025.01</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 最新动态 -->
+        <section class="updates-section">
+            <div class="section-header">
+                <h2>最新动态</h2>
+                <a href="pages/updates.html" class="link-all">查看全部 →</a>
+            </div>
+            <div class="update-list">
+                <div class="update-item urgent">
+                    <div class="update-meta">
+                        <span class="tag urgent">紧急</span>
+                        <span class="region-tag vn">越南</span>
+                        <span class="date">2025.01.15</span>
+                    </div>
+                    <h4>越南修订《广告法》实施细则，加强对KOL/网红广告标识要求</h4>
+                    <p>工贸部发布第XX/2025/TT-BCT号通告，明确要求社交媒体推广必须标注"广告"字样...</p>
+                </div>
+                <div class="update-item">
+                    <div class="update-meta">
+                        <span class="tag">政策</span>
+                        <span class="region-tag th">泰国</span>
+                        <span class="date">2025.01.12</span>
+                    </div>
+                    <h4>泰国商务部拟出台跨境电商/直播带货新规</h4>
+                    <p>针对TikTok Shop、Shopee Live等平台，要求外国卖家必须注册本地实体...</p>
+                </div>
+                <div class="update-item">
+                    <div class="update-meta">
+                        <span class="tag">执法</span>
+                        <span class="region-tag my">马来西亚</span>
+                        <span class="date">2025.01.10</span>
+                    </div>
+                    <h4>马来西亚通讯与多媒体委员会(MCMC)对未标识赞助内容的网红开出罚单</h4>
+                    <p>涉及美容品牌X在Instagram的推广活动，罚款金额创当地新高...</p>
+                </div>
+                <div class="update-item">
+                    <div class="update-meta">
+                        <span class="tag">同业</span>
+                        <span class="region-tag">全行业</span>
+                        <span class="date">2025.01.08</span>
+                    </div>
+                    <h4>Yeah1 Group 2024年报披露东南亚扩张计划及合规投入</h4>
+                    <p>越南本土传媒集团Yeah1公布其在泰国、菲律宾的合规架构和本地化策略...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 法律领域 -->
+        <section class="law-categories">
+            <h2>法律领域</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="icon">📢</div>
+                    <h4>广告法</h4>
+                    <p>各国广告内容审查、禁用词、标识要求、医疗/金融/博彩等特殊行业限制</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon">📱</div>
+                    <h4>网红/KOL合规</h4>
+                    <p>主播/达人资质要求、广告标识义务、税务申报、平台责任、虚假代言处罚</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon">🏢</div>
+                    <h4>外商投资</h4>
+                    <p>外资持股比例、负面清单、审批流程、本地合作伙伴要求、VIE架构风险</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon">⚖️</div>
+                    <h4>公司合规</h4>
+                    <p>公司注册、董事要求、年度审计、信息披露、反垄断/竞争法合规</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon">👥</div>
+                    <h4>劳动用工</h4>
+                    <p>劳动合同、最低工资、社保缴纳、外籍员工配额、解雇保护、工会</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon">💰</div>
+                    <h4>税务与外汇</h4>
+                    <p>企业所得税、增值税/GST、预提税、转让定价、利润汇出、外汇管制</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 信息源 -->
+        <section class="sources-section">
+            <h2>核心信息源</h2>
+            <div class="source-tabs">
+                <button class="tab-btn active" data-tab="gov">政府官方</button>
+                <button class="tab-btn" data-tab="lawfirm">律所文章</button>
+                <button class="tab-btn" data-tab="news">新闻咨询</button>
+                <button class="tab-btn" data-tab="peers">同业披露</button>
+            </div>
+            <div class="tab-content active" id="gov">
+                <div class="source-list">
+                    <div class="source-item">
+                        <h4>越南 Ministry of Industry and Trade (MOIT)</h4>
+                        <p>广告管理、电商、消费者保护法规发布</p>
+                        <a href="https://moit.gov.vn" target="_blank">moit.gov.vn →</a>
+                    </div>
+                    <div class="source-item">
+                        <h4>泰国 Office of Trade Competition Commission (OTCC)</h4>
+                        <p>竞争法、不正当竞争、广告合规执法</p>
+                        <a href="https://www.otcc.go.th" target="_blank">otcc.go.th →</a>
+                    </div>
+                    <div class="source-item">
+                        <h4>马来西亚 Malaysian Communications and Multimedia Commission (MCMC)</h4>
+                        <p>数字内容、社交媒体、网红/KOL监管</p>
+                        <a href="https://www.mcmc.gov.my" target="_blank">mcmc.gov.my →</a>
+                    </div>
+                    <div class="source-item">
+                        <h4>香港 Communications Authority (CA)</h4>
+                        <p>广播、电视广告守则、内容标准</p>
+                        <a href="https://www.coms-auth.hk" target="_blank">coms-auth.hk →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>海外广告合规情报站 · 为湫湫的东南亚业务保驾护航</p>
+            <p class="small">信息仅供内部参考，不构成法律意见。关键决策请咨询当地执业律师。</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

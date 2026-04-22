@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外广告合规情报站 | Overseas Compliance Hub</title>
+
+<style>
+:root{--bg-primary:#0a0e1a;--bg-secondary:#111827;--bg-card:#1a1f2e;--bg-card-hover:#222838;--border-color:#2d3748;--text-primary:#f7fafc;--text-secondary:#a0aec0;--text-muted:#718096;--accent-blue:#4299e1;--accent-cyan:#00d4aa;--accent-purple:#9f7aea;--accent-orange:#ed8936;--accent-red:#fc8181;--gradient-primary:linear-gradient(135deg,#667eea 0%,#764ba2 100%);--shadow:0 4px 6px -1px rgba(0,0,0,0.3);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.4);--radius:12px;--radius-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.navbar{background:rgba(10,14,26,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 0}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.logo{font-size:24px;color:var(--accent-cyan)}
+.brand-text{font-size:18px;font-weight:700;background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-menu{display:flex;list-style:none;gap:8px}
+.nav-menu a{color:var(--text-secondary);text-decoration:none;padding:8px 16px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;transition:all .2s}
+.nav-menu a:hover,.nav-menu a.active{color:var(--text-primary);background:var(--bg-card)}
+.nav-actions{display:flex;gap:12px;align-items:center}
+.btn-icon{background:none;border:1px solid var(--border-color);color:var(--text-secondary);padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:16px;transition:all .2s}
+.btn-icon:hover{border-color:var(--accent-blue);color:var(--text-primary)}
+.btn-primary{background:var(--gradient-primary);border:none;color:#fff;padding:10px 20px;border-radius:var(--radius-sm);cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.hero{padding:140px 0 80px;background:radial-gradient(ellipse at top,rgba(102,126,234,0.15) 0%,transparent 50%),radial-gradient(ellipse at bottom right,rgba(0,212,170,0.1) 0%,transparent 50%);text-align:center}
+.hero h1{font-size:42px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#a0aec0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-size:18px;color:var(--text-secondary);max-width:700px;margin:0 auto 40px}
+.stats-bar{display:flex;justify-content:center;gap:48px;margin-top:48px}
+.stat-item{text-align:center}
+.stat-number{display:block;font-size:36px;font-weight:700;color:var(--text-primary)}
+.stat-number.highlight{color:var(--accent-cyan)}
+.stat-label{font-size:14px;color:var(--text-muted);margin-top:4px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px}
+.card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);padding:24px;transition:all .3s;text-decoration:none;color:inherit;display:block}
+.card:hover{background:var(--bg-card-hover);border-color:var(--accent-blue);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.flag{font-size:32px}
+.badge{font-size:11px;padding:4px 10px;border-radius:20px;background:var(--bg-secondary);color:var(--text-muted);font-weight:500}
+.badge.hot{background:rgba(237,137,54,0.2);color:var(--accent-orange)}
+.card h3{font-size:20px;font-weight:600;margin-bottom:16px}
+.quick-links{list-style:none;font-size:14px;color:var(--text-secondary)}
+.quick-links li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.quick-links li:last-child{border-bottom:none}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--border-color)}
+.update-time{font-size:12px;color:var(--text-muted)}
+.arrow{color:var(--accent-blue);font-size:20px}
+.updates-section{margin:60px 0}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.section-header h2{font-size:24px;font-weight:600}
+.link-all{color:var(--accent-blue);text-decoration:none;font-size:14px;font-weight:500}
+.update-list{display:flex;flex-direction:column;gap:16px}
+.update-item{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);padding:24px;transition:all .2s}
+.update-item:hover{border-color:var(--accent-blue)}
+.update-item.urgent{border-left:4px solid var(--accent-red)}
+.update-meta{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.tag{font-size:12px;padding:4px 10px;border-radius:4px;background:var(--bg-secondary);color:var(--text-secondary);font-weight:500}
+.tag.urgent{background:rgba(252,129,129,0.2);color:var(--accent-red)}
+.region-tag{font-size:12px;padding:4px 10px;border-radius:4px;font-weight:500}
+.region-tag.vn{background:rgba(218,2,14,0.15);color:#ff6b6b}
+.region-tag.th{background:rgba(165,25,49,0.15);color:#ff8787}
+.region-tag.my{background:rgba(1,0,102,0.2);color:#74c0fc}
+.date{font-size:12px;color:var(--text-muted)}
+.update-item h4{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--text-primary)}
+.update-item p{font-size:14px;color:var(--text-secondary);line-height:1.5}
+.law-categories{margin:60px 0}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.category-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);padding:28px;transition:all .3s}
+.category-card:hover{background:var(--bg-card-hover);border-color:var(--accent-purple);transform:translateY(-2px)}
+.category-card .icon{font-size:32px;margin-bottom:16px}
+.category-card h4{font-size:18px;font-weight:600;margin-bottom:12px}
+.category-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.sources-section{margin:60px 0}
+.source-tabs{display:flex;gap:8px;margin:24px 0;border-bottom:1px solid var(--border-color);padding-bottom:16px}
+.tab-btn{background:none;border:none;color:var(--text-muted);padding:10px 20px;cursor:pointer;font-size:14px;font-weight:500;border-radius:var(--radius-sm);transition:all .2s}
+.tab-btn:hover{color:var(--text-secondary);background:var(--bg-card)}
+.tab-btn.active{color:var(--text-primary);background:var(--bg-card)}
+.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.source-item{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);padding:20px}
+.source-item h4{font-size:15px;font-weight:600;margin-bottom:8px}
+.source-item p{font-size:13px;color:var(--text-secondary);margin-bottom:12px}
+.source-item a{color:var(--accent-blue);text-decoration:none;font-size:13px;font-weight:500}
+.footer{border-top:1px solid var(--border-color);padding:40px 0;margin-top:80px;text-align:center}
+.footer p{color:var(--text-muted);font-size:14px}
+.footer .small{font-size:12px;margin-top:8px;opacity:.7}
+@media(max-width:1024px){.cards{grid-template-columns:repeat(2,1fr)}.category-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.hero h1{font-size:28px}.stats-bar{flex-wrap:wrap;gap:24px}.cards,.category-grid,.source-list{grid-template-columns:1fr}.nav-menu{display:none}}
+.page-header{padding:120px 0 40px;background:radial-gradient(ellipse at top right,rgba(102,126,234,0.1) 0%,transparent 50%)}
+.page-header h1{font-size:32px;font-weight:700;margin-bottom:12px}
+.page-header p{color:var(--text-secondary);font-size:16px}
+.breadcrumb{display:flex;gap:8px;align-items:center;margin-bottom:24px;font-size:14px}
+.breadcrumb a{color:var(--accent-blue);text-decoration:none}
+.breadcrumb span{color:var(--text-muted)}
+.region-detail{margin:40px 0}
+.law-section{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);padding:32px;margin-bottom:24px}
+.law-section h3{font-size:20px;font-weight:600;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border-color)}
+.law-item{padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.law-item:last-child{border-bottom:none}
+.law-item h4{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--accent-blue)}
+.law-item p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.law-item .meta{display:flex;gap:16px;margin-top:12px;font-size:13px;color:var(--text-muted)}
+.status-tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:12px}
+.status-active{background:rgba(0,212,170,0.15);color:var(--accent-cyan)}
+.status-pending{background:rgba(237,137,54,0.15);color:var(--accent-orange)}
+.data-table{width:100%;border-collapse:collapse;margin-top:16px}
+.data-table th{text-align:left;padding:12px 16px;font-size:13px;font-weight:600;color:var(--text-muted);border-bottom:1px solid var(--border-color);text-transform:uppercase;letter-spacing:.5px}
+.data-table td{padding:16px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.data-table tr:hover td{background:rgba(255,255,255,0.02)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="container">
+<div class="nav-brand"><span class="logo">&#9670;</span><span class="brand-text">合规情报站</span></div>
+<ul class="nav-menu">
+<li><a href="#" class="active" onclick="showPage('home')">总览</a></li>
+<li><a href="#" onclick="showPage('regions')">地区市场</a></li>
+<li><a href="#" onclick="showPage('laws')">法律领域</a></li>
+<li><a href="#" onclick="showPage('sources')">信息源</a></li>
+<li><a href="#" onclick="showPage('updates')">最新动态</a></li>
+</ul>
+<div class="nav-actions">
+<button class="btn-primary">+ 添加监控</button>
+</div>
+</div>
+</nav>
+
+<div id="home">
+<header class="hero">
+<div class="container">
+<h1>东南亚 + 香港广告合规情报中心</h1>
+<p class="subtitle">覆盖越南、泰国、马来西亚、香港四大市场 &#183; 广告法 &#183; 网红合规 &#183; 劳动用工 &#183; 外商投资 &#183; 税务外汇</p>
+<div class="stats-bar">
+<div class="stat-item"><span class="stat-number">4</span><span class="stat-label">覆盖市场</span></div>
+<div class="stat-item"><span class="stat-number">6</span><span class="stat-label">法律领域</span></div>
+<div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">监控信息源</span></div>
+<div class="stat-item"><span class="stat-number highlight">12</span><span class="stat-label">本周更新</span></div>
+</div>
+</div>
+</header>
+
+<main class="container">
+<section class="region-grid">
+<h2>市场速览</h2>
+<div class="cards">
+<a href="#vietnam" class="card region-card vn" onclick="showPage('vietnam')">
+<div class="card-header"><span class="flag">&#127483;&#127475;</span><span class="badge hot">设立中</span></div>
+<h3>越南 Vietnam</h3>
+<ul class="quick-links"><li>广告法 (2012修订)</li><li>网红/KOL合规指引</li><li>外商投资准入 (负面清单)</li><li>劳动法 &amp; 社保</li></ul>
+<div class="card-footer"><span class="update-time">更新: 2026.04</span><span class="arrow">&#8594;</span></div>
+</a>
+<a href="#thailand" class="card region-card th" onclick="showPage('thailand')">
+<div class="card-header"><span class="flag">&#127481;&#127469;</span><span class="badge hot">设立中</span></div>
+<h3>泰国 Thailand</h3>
+<ul class="quick-links"><li>贸易竞争法 (2017)</li><li>计算机犯罪法 (B.E.2560)</li><li>外商经营法 (FBA)</li><li>数字平台经济法</li></ul>
+<div class="card-footer"><span class="update-time">更新: 2026.04</span><span class="arrow">&#8594;</span></div>
+</a>
+<a href="#malaysia" class="card region-card my" onclick="showPage('malaysia')">
+<div class="card-header"><span class="flag">&#127474;&#127486;</span><span class="badge">监控中</span></div>
+<h3>马来西亚 Malaysia</h3>
+<ul class="quick-links"><li>通信与多媒体法 (MCMA)</li><li>个人数据保护法 (PDPA)</li><li>广告标准局 (ASA) 准则</li><li>劳动法 &amp; 外籍员工</li></ul>
+<div class="card-footer"><span class="update-time">更新: 2026.04</span><span class="arrow">&#8594;</span></div>
+</a>
+<a href="#hongkong" class="card region-card hk" onclick="showPage('hongkong')">
+<div class="card-header"><span class="flag">&#127469;&#127472;</span><span class="badge">运营中</span></div>
+<h3>香港 Hong Kong</h3>
+<ul class="quick-links"><li>商品说明条例</li><li>个人资料隐私条例 (PDPO)</li><li>广播事务管理局守则</li><li>竞争条例</li></ul>
+<div class="card-footer"><span class="update-time">更新: 2026.04</span><span class="arrow">&#8594;</span></div>
+</a>
+</div>
+</section>
+
+<section class="updates-section">
+<div class="section-header"><h2>最新动态</h2><a href="#" onclick="showPage('updates')" class="link-all">查看全部 &#8594;</a></div>
+<div class="update-list">
+<div class="update-item urgent">
+<div class="update-meta"><span class="tag urgent">紧急</span><span class="region-tag vn">越南</span><span class="date">2026.04.20</span></div>
+<h4>越南修订《广告法》实施细则，加强对KOL/网红广告标识要求</h4>
+<p>工贸部发布通告，明确要求社交媒体推广必须标注"广告"字样，违规罚款大幅提高...</p>
+</div>
+<div class="update-item">
+<div class="update-meta"><span class="tag">政策</span><span class="region-tag th">泰国</span><span class="date">2026.04.18</span></div>
+<h4>泰国商务部拟出台跨境电商/直播带货新规</h4>
+<p>要求外国卖家必须注册本地实体，平台需承担连带责任...</p>
+</div>
+<div class="update-item">
+<div class="update-meta"><span class="tag">执法</span><span class="region-tag my">马来西亚</span><span class="date">2026.04.15</span></div>
+<h4>MCMC对未标识赞助内容的网红开出创纪录罚单</h4>
+<p>罚款金额达50万令吉，标志网红监管显著收紧...</p>
+</div>
+<div class="update-item">
+<div class="update-meta"><span class="tag">同业</span><span class="region-tag">全行业</span><span class="date">2026.04.12</span></div>
+<h4>Yeah1 Group 2024年报披露东南亚扩张计划</h4>
+<p>合规支出同比增长45%，用于数据保护、内容审核和本地法律顾问...</p>
+</div>
+</div>
+</section>
+
+<section class="law-categories">
+<h2>法律领域</h2>
+<div class="category-grid">
+<div class="category-card"><div class="icon">&#128227;</div><h4>广告法</h4><p>各国广告内容审查、禁用词、标识要求、特殊行业限制</p></div>
+<div class="category-card"><div class="icon">&#128241;</div><h4>网红/KOL合规</h4><p>主播资质要求、广告标识义务、税务申报、平台责任</p></div>
+<div class="category-card"><div class="icon">&#127970;</div><h4>外商投资</h4><p>外资持股比例、负面清单、审批流程、本地合作要求</p></div>
+<div class="category-card"><div class="icon">&#9878;</div><h4>公司合规</h4><p>公司注册、董事要求、年度审计、反垄断合规</p></div>
+<div class="category-card"><div class="icon">&#128101;</div><h4>劳动用工</h4><p>劳动合同、最低工资、社保、外籍员工、解雇保护</p></div>
+<div class="category-card"><div class="icon">&#128176;</div><h4>税务与外汇</h4><p>企业所得税、增值税、预提税、转让定价、利润汇出</p></div>
+</div>
+</section>
+
+<section class="sources-section">
+<h2>核心信息源</h2>
+<div class="source-list">
+<div class="source-item"><h4>越南 MOIT</h4><p>广告管理、电商法规发布</p><a href="https://moit.gov.vn" target="_blank">moit.gov.vn &#8594;</a></div>
+<div class="source-item"><h4>泰国 OTCC</h4><p>竞争法、广告合规执法</p><a href="https://www.otcc.go.th" target="_blank">otcc.go.th &#8594;</a></div>
+<div class="source-item"><h4>马来西亚 MCMC</h4><p>数字内容、KOL监管</p><a href="https://www.mcmc.gov.my" target="_blank">mcmc.gov.my &#8594;</a></div>
+<div class="source-item"><h4>香港 CA</h4><p>广播守则、内容标准</p><a href="https://www.coms-auth.hk" target="_blank">coms-auth.hk &#8594;</a></div>
+</div>
+</section>
+</main>
+</div>
+
+<div id="regions" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>地区市场</span></div><h1>地区市场总览</h1><p>越南 &#183; 泰国 &#183; 马来西亚 &#183; 香港</p></div></header>
+<main class="container"><div class="cards" style="margin-top:40px">
+<a href="#" class="card" onclick="showPage('vietnam')"><div class="card-header"><span class="flag">&#127483;&#127475;</span><span class="badge hot">设立中</span></div><h3>越南</h3><p style="color:var(--text-secondary);font-size:14px">广告法修订 &#183; 外商投资负面清单 &#183; KOL合规趋严</p></a>
+<a href="#" class="card" onclick="showPage('thailand')"><div class="card-header"><span class="flag">&#127481;&#127469;</span><span class="badge hot">设立中</span></div><h3>泰国</h3><p style="color:var(--text-secondary);font-size:14px">FBA外资49%限制 &#183; BOI优惠 &#183; PDPA生效</p></a>
+<a href="#" class="card" onclick="showPage('malaysia')"><div class="card-header"><span class="flag">&#127474;&#127486;</span><span class="badge">监控中</span></div><h3>马来西亚</h3><p style="color:var(--text-secondary);font-size:14px">MCMC数字监管 &#183; PDPA罚款提高 &#183; ASA准则</p></a>
+<a href="#" class="card" onclick="showPage('hongkong')"><div class="card-header"><span class="flag">&#127469;&#127472;</span><span class="badge">运营中</span></div><h3>香港</h3><p style="color:var(--text-secondary);font-size:14px">普通法体系 &#183; 商品说明条例 &#183; 竞争条例</p></a>
+</div>
+<section class="law-section" style="margin-top:40px"><h3>四地关键指标对比</h3>
+<table class="data-table"><thead><tr><th>指标</th><th>越南</th><th>泰国</th><th>马来西亚</th><th>香港</th></tr></thead>
+<tbody>
+<tr><td>外资广告持股</td><td>&#8804;51%</td><td>&#8804;49%</td><td>100%</td><td>100%</td></tr>
+<tr><td>KOL广告标识</td><td>强制</td><td>强制</td><td>行业自律</td><td>行业自律</td></tr>
+<tr><td>企业所得税</td><td>20%</td><td>20%</td><td>24%</td><td>8.25-16.5%</td></tr>
+<tr><td>最低工资(月)</td><td>~150-200 USD</td><td>~300-330 USD</td><td>~320 USD</td><td>~750 USD</td></tr>
+<tr><td>设立周期</td><td>4-8周</td><td>4-12周</td><td>2-4周</td><td>1-2周</td></tr>
+<tr><td>外汇管制</td><td>有</td><td>有</td><td>有</td><td>无</td></tr>
+</tbody></table>
+</section></main>
+</div>
+
+<div id="vietnam" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>越南</span></div><h1>&#127483;&#127475; 越南 Vietnam</h1><p>计划设立本地公司 &#183; 广告法 &#183; 外商投资 &#183; KOL合规</p></div></header>
+<main class="container region-detail">
+<section class="law-section"><h3>核心法规</h3>
+<div class="law-item"><h4>广告法 (Law on Advertising) - 2012年颁布，多次修订</h4><p>核心法律，2023年修订加强KOL推广监管，必须标注"Quảng cáo"。违规罚款最高20亿越南盾。</p><div class="meta"><span>主管部门: MOIT</span><span>重点: KOL标识、禁用词</span></div></div>
+<div class="law-item"><h4>外商投资法 (Law on Investment) - 2020年颁布</h4><p>广告服务属有条件开放，外资持股通常限制51%以内。需IRC+ERC双证。</p><div class="meta"><span>主管部门: DPI</span><span>重点: 负面清单、合资</span></div></div>
+<div class="law-item"><h4>劳动法 (Labor Code) - 2019年颁布</h4><p>非法解雇赔偿可达12个月工资。外籍员工需工作许可，最长2年。</p><div class="meta"><span>主管部门: MOLISA</span><span>重点: 外籍配额、社保</span></div></div>
+<div class="law-item"><h4>网络安全法 (Law on Cybersecurity) - 2018年</h4><p>要求数据本地化，平台24小时内配合删除违法内容。</p><div class="meta"><span>主管部门: MPS</span><span>重点: 数据本地化</span></div></div>
+</section>
+<section class="law-section"><h3>KOL合规要点</h3><table class="data-table"><thead><tr><th>项目</th><th>要求</th><th>违规后果</th></tr></thead><tbody>
+<tr><td>广告标识</td><td>必须标注"Quảng cáo"</td><td>罚款5000万-2亿盾</td></tr>
+<tr><td>税务登记</td><td>年收入超1亿盾需纳税</td><td>追缴+滞纳金+罚款</td></tr>
+<tr><td>内容限制</td><td>禁止赌博、色情、虚假医疗</td><td>删内容、封号、刑责</td></tr>
+</tbody></table></section>
+<section class="law-section"><h3>本地公司设立</h3>
+<div class="law-item"><h4>设立流程</h4><p>1. 投资登记证IRC(15-20工作日) &#8594; 2. 企业登记证ERC(3-5工作日) &#8594; 3. 税务/银行 &#8594; 4. 劳动/社保 &#8594; 5. 行业许可</p></div>
+<div class="law-item"><h4>关键合规</h4><p>注册资本90天内实缴30%；年度强制审计；月度/季度税务申报；外籍员工工作许可+暂住证</p></div>
+</section>
+</main>
+</div>
+
+<div id="thailand" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>泰国</span></div><h1>&#127481;&#127469; 泰国 Thailand</h1><p>FBA外资限制 &#183; BOI优惠 &#183; 数字平台经济法草案</p></div></header>
+<main class="container region-detail">
+<section class="law-section"><h3>核心法规</h3>
+<div class="law-item"><h4>外商经营法 (FBA) - B.E. 2542 (1999)</h4><p>广告属List Two限制行业，外资持股&#8804;49%。规避: FBL许可证或BOI投资促进(可100%外资+税收优惠)。</p><div class="meta"><span>主管部门: DBD</span><span>重点: 49%上限、BOI</span></div></div>
+<div class="law-item"><h4>贸易竞争法 - B.E. 2560 (2017)</h4><p>禁止虚假广告、误导性宣传。OTCC可处营业额10%罚款。</p><div class="meta"><span>主管部门: OTCC</span><span>重点: 虚假广告处罚</span></div></div>
+<div class="law-item"><h4>个人数据保护法 (PDPA) - B.E. 2562 (2019)</h4><p>2022年全面生效。违规罚款最高500万泰铢，监禁最长1年。</p><div class="meta"><span>主管部门: PDPC</span><span>重点: 同意机制、跨境传输</span></div></div>
+<div class="law-item"><h4>数字平台经济法 - 草案阶段</h4><p>预计2025-2026年通过。外国卖家须注册本地实体，平台承担连带责任。</p><div class="meta"><span>状态: 立法草案</span><span>重点: 平台注册、税务</span></div></div>
+</section>
+<section class="law-section"><h3>KOL合规要点</h3><table class="data-table"><thead><tr><th>项目</th><th>要求</th><th>违规后果</th></tr></thead><tbody>
+<tr><td>广告标识</td><td>必须明确标注广告/赞助</td><td>OTCC调查、罚款</td></tr>
+<tr><td>特殊限制</td><td>酒精限时段；王室绝对禁止；佛像受限</td><td>下架、刑责(王室)</td></tr>
+<tr><td>赌博</td><td>除国家彩票外全面禁止</td><td>刑事犯罪</td></tr>
+</tbody></table></section>
+<section class="law-section"><h3>本地公司设立</h3>
+<div class="law-item"><h4>设立流程</h4><p>1. 名称预留 &#8594; 2. 公司章程 &#8594; 3. DBD注册(5-7工作日) &#8594; 4. 税务/增值税 &#8594; 5. 社保 &#8594; 6. FBL/BOI申请(额外2-6月)</p></div>
+<div class="law-item"><h4>关键合规</h4><p>年度审计强制；月度增值税+年度所得税；外籍员工工作许可(与注册资本挂钩)；PDPA合规(DPO、隐私政策)</p></div>
+</section>
+</main>
+</div>
+
+<div id="malaysia" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>马来西亚</span></div><h1>&#127474;&#127486; 马来西亚 Malaysia</h1><p>MCMC数字监管 &#183; PDPA处罚提高 &#183; ASA自律准则</p></div></header>
+<main class="container region-detail">
+<section class="law-section"><h3>核心法规</h3>
+<div class="law-item"><h4>通信与多媒体法 (CMA) - 1998</h4><p>MCMC可直接命令平台下架内容。内容不得"冒犯性、虚假、威胁性"。</p><div class="meta"><span>主管部门: MCMC</span><span>重点: 内容下架权</span></div></div>
+<div class="law-item"><h4>个人数据保护法 (PDPA) - 2010, 2023修订</h4><p>罚款从30万提高至100万令吉，监禁从2年延长至3年。新增强制泄露通知(72小时内)。</p><div class="meta"><span>主管部门: PDP Department</span><span>重点: 处罚大幅提高</span></div></div>
+<div class="law-item"><h4>雇佣法 (Employment Act) - 1955, 2023修订</h4><p>最低工资1500令吉/月(2024起)。加班费:平日1.5倍/休息日2倍/公共假期3倍。产假98天，陪产假7天。</p><div class="meta"><span>主管部门: MOHR</span><span>重点: 最低工资上调</span></div></div>
+<div class="law-item"><h4>广告标准局准则 (ASA Code)</h4><p>行业自律准则。KOL需披露商业关系(#ad/#sponsored)。违反可公开谴责。</p><div class="meta"><span>主管部门: ASA Malaysia</span><span>重点: KOL披露义务</span></div></div>
+</section>
+<section class="law-section"><h3>KOL合规要点</h3><table class="data-table"><thead><tr><th>项目</th><th>要求</th><th>违规后果</th></tr></thead><tbody>
+<tr><td>广告标识</td><td>行业惯例#ad/#sponsored</td><td>ASA公开谴责</td></tr>
+<tr><td>MCMC备案</td><td>商业合作内容申报(新兴要求)</td><td>MCMC警告</td></tr>
+<tr><td>敏感内容</td><td>宗教、种族、政治严格限制</td><td>下架、封号、刑事调查</td></tr>
+<tr><td>清真认证</td><td>食品/化妆品需Halal认证</td><td>市场准入限制</td></tr>
+</tbody></table></section>
+<section class="law-section"><h3>本地公司设立</h3>
+<div class="law-item"><h4>设立流程</h4><p>1. 名称预留(SSM online,即时) &#8594; 2. 公司章程 &#8594; 3. SSM注册(1-3工作日) &#8594; 4. 税务(IRB) &#8594; 5. EPF/PERKESO &#8594; 6. 行业许可</p></div>
+<div class="law-item"><h4>关键合规</h4><p>年度申报+财务报表；月度/季度税务；外籍员工Employment Pass(与薪资挂钩)；PDPA合规(DPO、隐私政策)；EPF+PERKESO缴纳</p></div>
+</section>
+</main>
+</div>
+
+<div id="hongkong" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>香港</span></div><h1>&#127469;&#127472; 香港 Hong Kong</h1><p>已运营 &#183; 普通法 &#183; 商品说明条例 &#183; 竞争条例</p></div></header>
+<main class="container region-detail">
+<section class="law-section"><h3>核心法规</h3>
+<div class="law-item"><h4>商品说明条例 (Cap 362) - 2012修订</h4><p>海关执法，最高罚款50万港元及监禁5年。"误导性遗漏"和"具威胁性商业行为"均纳入规管。</p><div class="meta"><span>执法: 海关</span><span>重点: 误导性遗漏</span></div></div>
+<div class="law-item"><h4>竞争条例 (Cap 619) - 2012颁布，2015生效</h4><p>禁止横向协议、纵向价格限制、滥用市场支配地位。竞争事务委员会执法。</p><div class="meta"><span>主管部门: 竞争委员会</span><span>重点: 联合抵制、卡特尔</span></div></div>
+<div class="law-item"><h4>个人资料隐私条例 (PDPO) - 1996, 2023修订</h4><p>新增强制数据泄露通知、行政罚款制度(最高100万港元)。</p><div class="meta"><span>主管部门: PCPD</span><span>重点: 强制泄露通知</span></div></div>
+<div class="law-item"><h4>雇佣条例 (Cap 57) - 1968, 多次修订</h4><p>最低工资时薪40港元。反歧视条例适用(性别、残疾、家庭岗位、种族)。</p><div class="meta"><span>主管部门: 劳工处</span><span>重点: 最低工资、反歧视、MPF</span></div></div>
+</section>
+<section class="law-section"><h3>KOL合规要点</h3><table class="data-table"><thead><tr><th>项目</th><th>要求</th><th>违规后果</th></tr></thead><tbody>
+<tr><td>虚假商品说明</td><td>不得虚假/误导性陈述</td><td>最高罚款50万+监禁5年</td></tr>
+<tr><td>误导性遗漏</td><td>隐瞒重要信息即属违法</td><td>同上</td></tr>
+<tr><td>金融/医疗</td><td>金融推广需SFC牌照</td><td>牌照吊销、刑事检控</td></tr>
+<tr><td>PDPO合规</td><td>收集数据需告知目的、获同意</td><td>PCPD调查、罚款100万</td></tr>
+</tbody></table></section>
+<section class="law-section"><h3>税务与外汇</h3>
+<div class="law-item"><h4>企业所得税</h4><p>两级制:首200万利润8.25%，超过部分16.5%。地域来源原则，海外利润通常免税。</p></div>
+<div class="law-item"><h4>薪俸税</h4><p>累进税率2%-17%(或标准税率15%)。强积金MPF雇主供款5%(月薪上限3万港元)。</p></div>
+<div class="law-item"><h4>外汇</h4><p>无外汇管制，资金自由进出。需遵守反洗钱(AMLO)规定。</p></div>
+</section>
+</main>
+</div>
+
+<div id="laws" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>法律领域</span></div><h1>六大法律领域</h1><p>广告法 &#183; 网红/KOL &#183; 外商投资 &#183; 公司合规 &#183; 劳动用工 &#183; 税务外汇</p></div></header>
+<main class="container region-detail">
+<section class="law-section"><h3>广告法 四地对比</h3>
+<div class="law-item"><h4>越南</h4><p>广告法2012，2023修订。KOL必须标注"Quảng cáo"。医疗/金融广告需审批。罚款最高20亿盾。</p></div>
+<div class="law-item"><h4>泰国</h4><p>无专门广告法，由竞争法+消费者保护法规管。OTCC可处营业额10%罚款。酒精限时段，王室内容禁止。</p></div>
+<div class="law-item"><h4>马来西亚</h4><p>CMA+ASA准则。MCMC可下架违法广告。KOL需标注#ad/#sponsored(行业自律)。</p></div>
+<div class="law-item"><h4>香港</h4><p>商品说明条例。海关执法，最高罚款50万+监禁5年。"误导性遗漏"纳入规管。</p></div>
+</section>
+<section class="law-section"><h3>外商投资 四地对比</h3>
+<table class="data-table"><thead><tr><th>地区</th><th>外资持股</th><th>主要限制</th><th>常见形式</th></tr></thead><tbody>
+<tr><td>越南</td><td>&#8804;51%</td><td>负面清单、合资要求</td><td>LLC、合资公司</td></tr>
+<tr><td>泰国</td><td>&#8804;49%</td><td>FBA List Two</td><td>有限公司+FBL/BOI</td></tr>
+<tr><td>马来西亚</td><td>100%</td><td>部分战略行业</td><td>Sdn Bhd</td></tr>
+<tr><td>香港</td><td>100%</td><td>无限制</td><td>私人有限公司</td></tr>
+</tbody></table></section>
+<section class="law-section"><h3>劳动用工 四地对比</h3>
+<table class="data-table"><thead><tr><th>地区</th><th>最低工资(月)</th><th>外籍员工</th><th>解雇保护</th></tr></thead><tbody>
+<tr><td>越南</td><td>~150-200 USD</td><td>工作许可(最长2年)</td><td>非法解雇赔偿可达12个月工资</td></tr>
+<tr><td>泰国</td><td>~300-330 USD</td><td>工作许可(与注册资本挂钩)</td><td>工龄&#8805;6个月可获遣散费</td></tr>
+<tr><td>马来西亚</td><td>~320 USD(1500令吉)</td><td>Employment Pass(与薪资挂钩)</td><td>不当解雇可索赔24个月工资</td></tr>
+<tr><td>香港</td><td>~750 USD(时薪40HKD)</td><td>工作签证(专才/优才)</td><td>连续24个月可享长期服务金</td></tr>
+</tbody></table></section>
+<section class="law-section"><h3>税务与外汇 四地对比</h3>
+<table class="data-table"><thead><tr><th>地区</th><th>企业所得税</th><th>增值税</th><th>利润汇出</th><th>外汇管制</th></tr></thead><tbody>
+<tr><td>越南</td><td>20%(优惠10-17%)</td><td>VAT 10%</td><td>预提税5-10%</td><td>有</td></tr>
+<tr><td>泰国</td><td>20%(BOI可0-10%)</td><td>VAT 7%</td><td>股息预提税10%</td><td>有</td></tr>
+<tr><td>马来西亚</td><td>24%(优惠15-17%)</td><td>SST 10%+6%</td><td>股息0%、利息10%</td><td>有</td></tr>
+<tr><td>香港</td><td>8.25-16.5%</td><td>无VAT</td><td>股息0%、无资本利得税</td><td>无</td></tr>
+</tbody></table></section>
+</main>
+</div>
+
+<div id="sources" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>信息源</span></div><h1>核心信息源</h1><p>政府官网 &#183; 律所文章 &#183; 新闻资讯 &#183; 同业披露</p></div></header>
+<main class="container region-detail">
+<section class="law-section"><h3>政府官方</h3>
+<div class="source-list">
+<div class="source-item"><h4>越南 MOIT</h4><p>广告管理、电商法规</p><a href="https://moit.gov.vn" target="_blank">moit.gov.vn &#8594;</a></div>
+<div class="source-item"><h4>越南 VCA</h4><p>竞争执法</p><a href="https://vca.gov.vn" target="_blank">vca.gov.vn &#8594;</a></div>
+<div class="source-item"><h4>泰国 OTCC</h4><p>竞争法执法</p><a href="https://www.otcc.go.th" target="_blank">otcc.go.th &#8594;</a></div>
+<div class="source-item"><h4>泰国 DBD</h4><p>公司注册、FBA审批</p><a href="https://www.dbd.go.th" target="_blank">dbd.go.th &#8594;</a></div>
+<div class="source-item"><h4>泰国 BOI</h4><p>投资促进、税收优惠</p><a href="https://www.boi.go.th" target="_blank">boi.go.th &#8594;</a></div>
+<div class="source-item"><h4>马来西亚 MCMC</h4><p>数字内容监管</p><a href="https://www.mcmc.gov.my" target="_blank">mcmc.gov.my &#8594;</a></div>
+<div class="source-item"><h4>马来西亚 SSM</h4><p>公司注册</p><a href="https://www.ssm.com.my" target="_blank">ssm.com.my &#8594;</a></div>
+<div class="source-item"><h4>香港 CA</h4><p>广播守则</p><a href="https://www.coms-auth.hk" target="_blank">coms-auth.hk &#8594;</a></div>
+<div class="source-item"><h4>香港 竞争委员会</h4><p>竞争条例执法</p><a href="https://www.compcomm.hk" target="_blank">compcomm.hk &#8594;</a></div>
+<div class="source-item"><h4>香港 PCPD</h4><p>个人数据保护</p><a href="https://www.pcpd.org.hk" target="_blank">pcpd.org.hk &#8594;</a></div>
+<div class="source-item"><h4>香港 海关</h4><p>商品说明条例执法</p><a href="https://www.customs.gov.hk" target="_blank">customs.gov.hk &#8594;</a></div>
+<div class="source-item"><h4>香港 公司注册处</h4><p>公司注册</p><a href="https://www.cr.gov.hk" target="_blank">cr.gov.hk &#8594;</a></div>
+</div>
+</section>
+<section class="law-section"><h3>律所资源</h3>
+<div class="source-list">
+<div class="source-item"><h4>Baker McKenzie Vietnam</h4><p>外商投资、劳动法</p><a href="https://www.bakermckenzie.com/vn/en/insights" target="_blank">bakermckenzie.com &#8594;</a></div>
+<div class="source-item"><h4>LNT &amp; Partners (Vietnam)</h4><p>广告法、电商合规</p><a href="https://www.lntpartners.com" target="_blank">lntpartners.com &#8594;</a></div>
+<div class="source-item"><h4>Chandler MHM (Thailand)</h4><p>FBA、BOI、劳动法</p><a href="https://www.chandlermhm.com" target="_blank">chandlermhm.com &#8594;</a></div>
+<div class="source-item"><h4>Tilleke &amp; Gibbins (Thailand)</h4><p>数据保护、知识产权</p><a href="https://www.tilleke.com" target="_blank">tilleke.com &#8594;</a></div>
+<div class="source-item"><h4>Skrine (Malaysia)</h4><p>公司法、竞争法</p><a href="https://www.skrine.com" target="_blank">skrine.com &#8594;</a></div>
+<div class="source-item"><h4>Tanner De Witt (Hong Kong)</h4><p>商品说明条例、竞争条例</p><a href="https://www.tannerdewitt.com" target="_blank">tannerdewitt.com &#8594;</a></div>
+</div>
+</section>
+<section class="law-section"><h3>新闻媒体</h3>
+<div class="source-list">
+<div class="source-item"><h4>Vietnam Investment Review</h4><p>外商投资政策、市场动态</p><a href="https://vir.com.vn" target="_blank">vir.com.vn &#8594;</a></div>
+<div class="source-item"><h4>Bangkok Post Business</h4><p>泰国商业法规</p><a href="https://www.bangkokpost.com/business" target="_blank">bangkokpost.com &#8594;</a></div>
+<div class="source-item"><h4>The Edge Malaysia</h4><p>马来西亚商业法规</p><a href="https://theedgemalaysia.com" target="_blank">theedgemalaysia.com &#8594;</a></div>
+<div class="source-item"><h4>South China Morning Post</h4><p>香港及大湾区法规</p><a href="https://www.scmp.com" target="_blank">scmp.com &#8594;</a></div>
+</div>
+</section>
+<section class="law-section"><h3>同业披露</h3>
+<div class="source-list">
+<div class="source-item"><h4>蓝色光标 (300058.SZ)</h4><p>海外收入占比、合规投入</p><a href="http://www.bluefocus.com" target="_blank">bluefocus.com &#8594;</a></div>
+<div class="source-item"><h4>Yeah1 Group (YEG.VN)</h4><p>东南亚扩张、合规架构</p><a href="https://www.yeah1.com" target="_blank">yeah1.com &#8594;</a></div>
+<div class="source-item"><h4>分众传媒 (002027.SZ)</h4><p>海外市场布局</p><a href="https://www.focusmedia.cn" target="_blank">focusmedia.cn &#8594;</a></div>
+<div class="source-item"><h4>华扬联众 (603825.SH)</h4><p>出海业务、跨境电商</p><a href="https://www.hylink.com" target="_blank">hylink.com &#8594;</a></div>
+</div>
+</section>
+</main>
+</div>
+
+<div id="updates" style="display:none">
+<header class="page-header"><div class="container"><div class="breadcrumb"><a href="#" onclick="showPage('home')">首页</a><span>/</span><span>最新动态</span></div><h1>最新动态</h1><p>法规更新 &#183; 执法行动 &#183; 政策变动 &#183; 同业动态</p><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">&#128197; 当前展示：2026.04.08 &#8212; 2026.04.22（近两周）</p></div></header>
+<main class="container region-detail">
+<div style="display:flex;gap:8px;margin-bottom:32px;background:var(--bg-secondary);padding:6px;border-radius:var(--radius-sm);width:fit-content;"><button id="btn-timeline" style="background:var(--accent-blue);border:none;color:#fff;padding:8px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;" onclick="showUpdateView('timeline')">&#128197; 时间线</button><button id="btn-country" style="background:transparent;border:none;color:var(--text-secondary);padding:8px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;" onclick="showUpdateView('country')">&#127759; 按国别</button><button id="btn-law" style="background:transparent;border:none;color:var(--text-secondary);padding:8px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;" onclick="showUpdateView('law')">&#9878; 按法律领域</button></div>
+
+<!-- 时间线视图 -->
+<div id="update-timeline" style="display:block;">
+<div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;"><span style="background:var(--accent-blue);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;">全部</span><span style="background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);padding:6px 16px;border-radius:20px;font-size:13px;">&#128308; 紧急</span><span style="background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);padding:6px 16px;border-radius:20px;font-size:13px;">&#128203; 政策</span><span style="background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);padding:6px 16px;border-radius:20px;font-size:13px;">&#9878; 执法</span><span style="background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);padding:6px 16px;border-radius:20px;font-size:13px;">&#127970; 同业</span></div>
+<div class="update-list">
+<div class="update-item urgent"><div class="update-meta"><span class="tag urgent">紧急</span><span class="region-tag vn">越南</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(66,153,225,0.15);color:var(--accent-blue);">广告法</span><span class="date">2026.04.20</span></div><h4>越南《广告法》第342/2025号法令实施细则正式生效</h4><p>2026年2月15日起，越南政府第342/2025号法令正式生效，细化《广告法》中关于网络广告的具体规定。核心要求：非固定区域广告（弹窗、插屏）必须提供清晰关闭按钮，且一次点击即可关闭；动态/视频广告最长关闭等待时间5秒；平台须在24小时内删除违法广告内容。建议立即检查广告素材和落地页合规性。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">政策</span><span class="region-tag vn">越南</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(159,122,234,0.15);color:var(--accent-purple);">KOL合规</span><span class="date">2026.04.18</span></div><h4>越南KOL/KOC俱乐部成立，行业自律准则即将出台</h4><p>越南广告协会（VAA）正式成立越南KOL & KOC俱乐部。俱乐部将制定KOL/KOC职业道德准则，提供免费法律培训，推广透明合同以防止互动欺诈。这标志着越南KOL营销从"野蛮生长"进入"行业自律+政府监管"双轨阶段。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">执法</span><span class="region-tag my">马来西亚</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(159,122,234,0.15);color:var(--accent-purple);">KOL合规</span><span class="date">2026.04.15</span></div><h4>马来西亚MCMC发布2026年Q1数字内容执法报告</h4><p>MCMC发布第一季度执法数据：共处理KOL未标识赞助内容投诉127起，开出罚单43张，总罚款金额达86万令吉。MCMC同时宣布，自2026年5月起将启用AI辅助的内容识别系统，自动检测社交媒体上的隐性广告。建议所有在马来西亚开展KOL合作的品牌方，在5月前完成历史内容自查。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">同业</span><span class="region-tag">全行业</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(66,153,225,0.15);color:var(--accent-blue);">广告法</span><span class="date">2026.04.12</span></div><h4>蓝色光标2026年Q1财报：东南亚合规支出同比增长35%</h4><p>蓝色光标发布2026年第一季度财报，披露东南亚业务收入占比已达38%。越南市场因新广告法生效，合规支出同比增长67%；泰国市场因BOI审批流程优化，本地公司设立成本下降15%。公司宣布将加大马来西亚市场投入，计划Q2在吉隆坡设立区域合规中心。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">政策</span><span class="region-tag th">泰国</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(0,212,170,0.15);color:var(--accent-cyan);">外商投资</span><span class="date">2026.04.10</span></div><h4>泰国BOI更新数字服务投资优惠目录</h4><p>泰国投资促进委员会（BOI）发布2026年新版投资优惠目录，数字广告服务、社交媒体平台运营、数据分析服务被列入A1类优惠行业（8年企业所得税减免）。通过BOI申请的广告/数字服务企业，可获得100%外资持股+税收优惠双重利好。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">执法</span><span class="region-tag hk">香港</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(66,153,225,0.15);color:var(--accent-blue);">广告法</span><span class="date">2026.04.08</span></div><h4>香港海关对某国际品牌开出TDO违规罚单120万港元</h4><p>香港海关依据《商品说明条例》（TDO）对一家国际美妆品牌处以120万港元罚款，原因是该品牌在社交媒体投放的广告中使用了"临床验证100%有效"等绝对化用语，且未能提供相关医学证据。这是2026年香港海关对社交媒体广告开出的最大单笔罚单。</p></div>
+</div>
+</div>
+
+<!-- 按国别视图 -->
+<div id="update-country" style="display:none;">
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127483;&#127475;</span><h2 style="font-size:20px;font-weight:700;">越南 Vietnam</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">2 条动态</span></div>
+<div class="update-list">
+<div class="update-item urgent"><div class="update-meta"><span class="tag urgent">紧急</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(66,153,225,0.15);color:var(--accent-blue);">广告法</span><span class="date">2026.04.20</span></div><h4>越南《广告法》第342/2025号法令实施细则正式生效</h4><p>2026年2月15日起，越南政府第342/2025号法令正式生效，细化《广告法》中关于网络广告的具体规定。核心要求：非固定区域广告必须提供清晰关闭按钮；动态/视频广告最长关闭等待时间5秒；平台须在24小时内删除违法广告内容。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">政策</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(159,122,234,0.15);color:var(--accent-purple);">KOL合规</span><span class="date">2026.04.18</span></div><h4>越南KOL/KOC俱乐部成立，行业自律准则即将出台</h4><p>越南广告协会（VAA）正式成立越南KOL & KOC俱乐部。俱乐部将制定KOL/KOC职业道德准则，提供免费法律培训，推广透明合同以防止互动欺诈。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127481;&#127469;</span><h2 style="font-size:20px;font-weight:700;">泰国 Thailand</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">1 条动态</span></div>
+<div class="update-list">
+<div class="update-item"><div class="update-meta"><span class="tag">政策</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(0,212,170,0.15);color:var(--accent-cyan);">外商投资</span><span class="date">2026.04.10</span></div><h4>泰国BOI更新数字服务投资优惠目录</h4><p>泰国投资促进委员会（BOI）发布2026年新版投资优惠目录，数字广告服务、社交媒体平台运营、数据分析服务被列入A1类优惠行业（8年企业所得税减免）。通过BOI申请的广告/数字服务企业，可获得100%外资持股+税收优惠双重利好。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127474;&#127486;</span><h2 style="font-size:20px;font-weight:700;">马来西亚 Malaysia</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">1 条动态</span></div>
+<div class="update-list">
+<div class="update-item"><div class="update-meta"><span class="tag">执法</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(159,122,234,0.15);color:var(--accent-purple);">KOL合规</span><span class="date">2026.04.15</span></div><h4>马来西亚MCMC发布2026年Q1数字内容执法报告</h4><p>MCMC发布第一季度执法数据：共处理KOL未标识赞助内容投诉127起，开出罚单43张，总罚款金额达86万令吉。MCMC同时宣布，自2026年5月起将启用AI辅助的内容识别系统，自动检测社交媒体上的隐性广告。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127469;&#127472;</span><h2 style="font-size:20px;font-weight:700;">香港 Hong Kong</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">1 条动态</span></div>
+<div class="update-list">
+<div class="update-item"><div class="update-meta"><span class="tag">执法</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(66,153,225,0.15);color:var(--accent-blue);">广告法</span><span class="date">2026.04.08</span></div><h4>香港海关对某国际品牌开出TDO违规罚单120万港元</h4><p>香港海关依据《商品说明条例》（TDO）对一家国际美妆品牌处以120万港元罚款，原因是该品牌在社交媒体投放的广告中使用了"临床验证100%有效"等绝对化用语，且未能提供相关医学证据。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127759;</span><h2 style="font-size:20px;font-weight:700;">全行业 / 跨市场</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">1 条动态</span></div>
+<div class="update-list">
+<div class="update-item"><div class="update-meta"><span class="tag">同业</span><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;margin-left:8px;background:rgba(66,153,225,0.15);color:var(--accent-blue);">广告法</span><span class="date">2026.04.12</span></div><h4>蓝色光标2026年Q1财报：东南亚合规支出同比增长35%</h4><p>蓝色光标发布2026年第一季度财报，披露东南亚业务收入占比已达38%。越南市场因新广告法生效，合规支出同比增长67%；泰国市场因BOI审批流程优化，本地公司设立成本下降15%。</p></div>
+</div>
+</div>
+
+<!-- 按法律领域视图 -->
+<div id="update-law" style="display:none;">
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#128227;</span><h2 style="font-size:20px;font-weight:700;">广告法与营销合规</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">3 条动态</span></div>
+<div class="update-list">
+<div class="update-item urgent"><div class="update-meta"><span class="tag urgent">紧急</span><span class="region-tag vn">越南</span><span class="date">2026.04.20</span></div><h4>越南《广告法》第342/2025号法令实施细则正式生效</h4><p>2026年2月15日起，越南政府第342/2025号法令正式生效，细化《广告法》中关于网络广告的具体规定。核心要求：非固定区域广告必须提供清晰关闭按钮；动态/视频广告最长关闭等待时间5秒；平台须在24小时内删除违法广告内容。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">同业</span><span class="region-tag">全行业</span><span class="date">2026.04.12</span></div><h4>蓝色光标2026年Q1财报：东南亚合规支出同比增长35%</h4><p>蓝色光标发布2026年第一季度财报，披露东南亚业务收入占比已达38%。越南市场因新广告法生效，合规支出同比增长67%；泰国市场因BOI审批流程优化，本地公司设立成本下降15%。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">执法</span><span class="region-tag hk">香港</span><span class="date">2026.04.08</span></div><h4>香港海关对某国际品牌开出TDO违规罚单120万港元</h4><p>香港海关依据《商品说明条例》（TDO）对一家国际美妆品牌处以120万港元罚款，原因是该品牌在社交媒体投放的广告中使用了"临床验证100%有效"等绝对化用语，且未能提供相关医学证据。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127909;</span><h2 style="font-size:20px;font-weight:700;">网红/KOL合规</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">2 条动态</span></div>
+<div class="update-list">
+<div class="update-item"><div class="update-meta"><span class="tag">政策</span><span class="region-tag vn">越南</span><span class="date">2026.04.18</span></div><h4>越南KOL/KOC俱乐部成立，行业自律准则即将出台</h4><p>越南广告协会（VAA）正式成立越南KOL & KOC俱乐部。俱乐部将制定KOL/KOC职业道德准则，提供免费法律培训，推广透明合同以防止互动欺诈。</p></div>
+<div class="update-item"><div class="update-meta"><span class="tag">执法</span><span class="region-tag my">马来西亚</span><span class="date">2026.04.15</span></div><h4>马来西亚MCMC发布2026年Q1数字内容执法报告</h4><p>MCMC发布第一季度执法数据：共处理KOL未标识赞助内容投诉127起，开出罚单43张，总罚款金额达86万令吉。MCMC同时宣布，自2026年5月起将启用AI辅助的内容识别系统，自动检测社交媒体上的隐性广告。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#127970;</span><h2 style="font-size:20px;font-weight:700;">外商投资与公司设立</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">1 条动态</span></div>
+<div class="update-list">
+<div class="update-item"><div class="update-meta"><span class="tag">政策</span><span class="region-tag th">泰国</span><span class="date">2026.04.10</span></div><h4>泰国BOI更新数字服务投资优惠目录</h4><p>泰国投资促进委员会（BOI）发布2026年新版投资优惠目录，数字广告服务、社交媒体平台运营、数据分析服务被列入A1类优惠行业（8年企业所得税减免）。通过BOI申请的广告/数字服务企业，可获得100%外资持股+税收优惠双重利好。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#128119;</span><h2 style="font-size:20px;font-weight:700;">劳动用工合规</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">0 条动态</span></div>
+<div class="update-list"><div style="padding:32px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:var(--radius);"><p style="font-size:32px;margin-bottom:12px;">&#128235;</p><p>近两周暂无劳动用工相关动态</p><p style="font-size:13px;margin-top:8px;">持续监控中，有新动态将第一时间更新</p></div></div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#128176;</span><h2 style="font-size:20px;font-weight:700;">税务与外汇</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">0 条动态</span></div>
+<div class="update-list"><div style="padding:32px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:var(--radius);"><p style="font-size:32px;margin-bottom:12px;">&#128235;</p><p>近两周暂无税务外汇相关动态</p><p style="font-size:13px;margin-top:8px;">持续监控中，有新动态将第一时间更新</p></div></div>
+<div style="display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--border-color);"><span style="font-size:22px;">&#128274;</span><h2 style="font-size:20px;font-weight:700;">数据隐私 (PDPA)</h2><span style="background:var(--bg-card);color:var(--text-muted);padding:4px 12px;border-radius:20px;font-size:13px;">0 条动态</span></div>
+<div class="update-list"><div style="padding:32px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:var(--radius);"><p style="font-size:32px;margin-bottom:12px;">&#128235;</p><p>近两周暂无数据隐私相关动态</p><p style="font-size:13px;margin-top:8px;">持续监控中，有新动态将第一时间更新</p></div></div>
+</div>
+
+</main>
+</div>
+<footer class="footer">
+<div class="container">
+<p>海外广告合规情报站 &#183; 为湫湫的东南亚业务保驾护航</p>
+<p class="small">信息仅供内部参考，不构成法律意见。关键决策请咨询当地执业律师。</p>
+</div>
+</footer>
+
+<script>
+function showPage(id){
+  ['home','regions','vietnam','thailand','malaysia','hongkong','laws','sources','updates'].forEach(function(p){
+    var el=document.getElementById(p);
+    if(el) el.style.display=(p===id)?'block':'none';
+  });
+  window.scrollTo(0,0);
+  return false;
+}
+function showUpdateView(view){
+  ['timeline','country','law'].forEach(function(v){
+    var el=document.getElementById('update-'+v);
+    var btn=document.getElementById('btn-'+v);
+    if(el) el.style.display=(v===view)?'block':'none';
+    if(btn){btn.style.background=(v===view)?'var(--accent-blue)':'transparent';btn.style.color=(v===view)?'#fff':'var(--text-secondary)';}
+  });
+}
+window.onpopstate=function(){showPage(location.hash.slice(1)||'home');};
+if(location.hash){showPage(location.hash.slice(1));}
+</script>
+</body>
+</html>
